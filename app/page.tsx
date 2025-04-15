@@ -9,6 +9,7 @@ const Metronome = () => {
   const [bpm, setBpm] = useState(60); // Default BPM
   const [isPlaying, setIsPlaying] = useState(false);
   const [activeDot, setActiveDot] = useState(-1); // Start with no dot active
+  const [numDots, setNumDots] = useState(4); // Default number of dots
 
   useEffect(() => {
     // Load the sound effects
@@ -35,14 +36,14 @@ const Metronome = () => {
 
     const timer = setInterval(() => {
       setActiveDot((prevDot) => {
-        const nextDot = (prevDot + 1) % 4; // Cycle through 0-3
+        const nextDot = (prevDot + 1) % numDots; // Cycle through 0 to numDots - 1
         playDing(nextDot); // Pass the updated dot to playDing
         return nextDot;
       });
     }, interval);
 
     return () => clearInterval(timer); // Cleanup on stop
-  }, [bpm, isPlaying]);
+  }, [bpm, isPlaying, numDots]);
 
   const playDing = (dot: number) => {
     if (dot === 0 && firstAudio) {
@@ -78,6 +79,11 @@ const Metronome = () => {
     }
   };
 
+  const handleNumDotsChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setNumDots(parseInt(e.target.value, 10));
+    setActiveDot(-1); // Reset to no active dot
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.controls}>
@@ -110,7 +116,7 @@ const Metronome = () => {
       </div>
       <img src="/pusheen.png" alt="Pusheen" className={styles.image} />
       <div className={styles.dots}>
-        {[0, 1, 2, 3].map((dot) => (
+        {Array.from({ length: numDots }).map((_, dot) => (
           <div
             key={dot}
             className={`${styles.dot} ${
@@ -118,6 +124,22 @@ const Metronome = () => {
             }`}
           ></div>
         ))}
+      </div>
+      <div className={styles.numDotsControl}>
+        <label htmlFor="numDots" className={styles.label}>
+          Number of Dots:
+        </label>
+        <select
+          id="numDots"
+          value={numDots}
+          onChange={handleNumDotsChange}
+          className={styles.select}
+        >
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="6">6</option>
+        </select>
       </div>
     </div>
   );

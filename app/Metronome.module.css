@@ -1,6 +1,9 @@
 .container {
   text-align: center;
   margin-top: 50px;
+  background-color: white; 
+  color: #333; 
+  font-family: 'Pixelify Sans', cursive; /* Pixel-art font */
 }
 
 .controls {
@@ -16,21 +19,23 @@
 
 .bpmButton {
   padding: 10px 15px;
-  font-size: 18px;
+  font-family: 'Pixelify Sans', cursive;
+  font-size: 16px;
   font-weight: bold;
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  border: 2px solid #555;
+  border-radius: 0; /* No rounded corners for a pixelated look */
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
 .bpmButton:hover {
-  background-color: #e0e0e0;
+  background-color: #555;
 }
 
 .label {
-  font-size: 16px;
+  font-size: 14px;
   margin: 0 10px;
 }
 
@@ -38,8 +43,9 @@
   -webkit-appearance: none;
   width: 200px;
   height: 10px;
-  background: #ccc;
-  border-radius: 5px;
+  background: #444;
+  border: 2px solid #555;
+  border-radius: 0; /* No rounded corners */
   outline: none;
   cursor: pointer;
 }
@@ -49,29 +55,41 @@
   appearance: none;
   width: 20px;
   height: 20px;
-  background: #555;
-  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #555;
+  border-radius: 0; /* No rounded corners */
   cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
   width: 20px;
   height: 20px;
-  background: #555;
-  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #555;
+  border-radius: 0; /* No rounded corners */
   cursor: pointer;
 }
 
 .button {
   padding: 10px 20px;
   font-size: 16px;
+  font-family: 'Pixelify Sans', cursive;
   margin: 5px;
+  background-color: #333;
+  color: #fff;
+  border: 2px solid #555;
+  border-radius: 0; /* No rounded corners */
   cursor: pointer;
+}
+
+.button:hover {
+  background-color: #555;
 }
 
 .image {
   width: 300px;
   height: auto;
+  image-rendering: pixelated; /* Makes the image look pixelated */
 }
 
 .dots {
@@ -84,15 +102,31 @@
   width: 20px;
   height: 20px;
   margin: 0 5px;
-  border-radius: 50%;
   background-color: lightgray; /* Default color */
-  transition: background-color 0.3s ease;
+  border: 2px solid #555;
+  transition: none; /* No smooth transitions */
 }
 
 .dot.active {
-  background-color: blue; /* Active dot color */
+  background-color: #333; /* Active dot color */
 }
 
 .dot.green {
-  background-color: green; /* First dot color */
+  background-color: palevioletred; /* First dot color */
+}
+
+.numDotsControl {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.select {
+  font-family: 'Pixelify Sans', cursive;
+  font-size: 14px;
+  padding: 5px;
+  background-color: #333;
+  color: #fff;
+  border: 2px solid #555;
+  border-radius: 0; /* No rounded corners */
+  cursor: pointer;
 }
