@@ -1,0 +1,98 @@
+.container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.controls {
+  margin-bottom: 20px;
+}
+
+.bpmControl {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.bpmButton {
+  padding: 10px 15px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.bpmButton:hover {
+  background-color: #e0e0e0;
+}
+
+.label {
+  font-size: 16px;
+  margin: 0 10px;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 200px;
+  height: 10px;
+  background: #ccc;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #555;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #555;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.image {
+  width: 300px;
+  height: auto;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.dot {
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: lightgray; /* Default color */
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: blue; /* Active dot color */
+}
+
+.dot.green {
+  background-color: green; /* First dot color */
+}
