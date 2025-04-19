@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "concurrently \"next dev\" \"npm run electron:dev\" \"npm run electron:start\"",
+    "electron:dev": "tsc -p tsconfig.electron.json --watch",
+    "electron:start": "wait-on http://localhost:3000 && electron dist-electron/main.js",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "electron": "^35.1.5",
     "next": "^15.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
@@ -18,6 +19,10 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "typescript": "^5"
+    "concurrently": "^9.1.2",
+    "electron": "^35.2.0",
+    "electron-is-dev": "^3.0.1",
+    "typescript": "^5",
+    "wait-on": "^8.0.3"
   }
 }
